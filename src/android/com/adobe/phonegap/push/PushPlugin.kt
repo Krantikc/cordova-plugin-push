@@ -611,7 +611,7 @@ class PushPlugin : CordovaPlugin() {
   }
 
   private fun checkForPostNotificationsPermission(): Boolean {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
       if (!PermissionHelper.hasPermission(this, Manifest.permission.POST_NOTIFICATIONS))
       {
         PermissionHelper.requestPermission(

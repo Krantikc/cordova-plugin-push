@@ -917,11 +917,12 @@ class PushPlugin : CordovaPlugin() {
         )
       }
     }
-    */
+    
 
     if (requestCode == REQ_CODE_INITIALIZE_PLUGIN)
     {
       executeActionInitialize(pluginInitData!!, pushContext!!)
     }
+    */
   }
 }

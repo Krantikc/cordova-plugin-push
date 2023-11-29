@@ -619,7 +619,7 @@ class PushPlugin : CordovaPlugin() {
           REQ_CODE_INITIALIZE_PLUGIN,
           Manifest.permission.POST_NOTIFICATIONS
         )
-        return true
+        return false
       }
     }
 

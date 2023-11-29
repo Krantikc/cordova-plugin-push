@@ -619,7 +619,7 @@ class PushPlugin : CordovaPlugin() {
           REQ_CODE_INITIALIZE_PLUGIN,
           Manifest.permission.POST_NOTIFICATIONS
         )
-        return false
+        return true
       }
     }
 
@@ -906,6 +906,7 @@ class PushPlugin : CordovaPlugin() {
   ) {
     super.onRequestPermissionResult(requestCode, permissions, grantResults)
 
+    /*
     for (r in grantResults!!) {
       if (r == PackageManager.PERMISSION_DENIED) {
         pushContext?.sendPluginResult(
@@ -914,9 +915,9 @@ class PushPlugin : CordovaPlugin() {
             "Permission to post notifications was denied by the user"
           )
         )
-        return
       }
     }
+    */
 
     if (requestCode == REQ_CODE_INITIALIZE_PLUGIN)
     {

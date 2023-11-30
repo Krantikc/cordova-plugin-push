@@ -442,8 +442,8 @@ class PushPlugin : CordovaPlugin() {
     pluginInitData = data;
 
     var hasPermission = checkForPostNotificationsPermission()
-    if (!hasPermission)
-      return
+    //if (!hasPermission)
+    //  return
 
     cordova.threadPool.execute(Runnable {
       Log.v(TAG, formatLogMessage("Data=$data"))
@@ -899,28 +899,4 @@ class PushPlugin : CordovaPlugin() {
     }
   }
 
-  override fun onRequestPermissionResult(
-    requestCode: Int,
-    permissions: Array<out String>?,
-    grantResults: IntArray?
-  ) {
-    super.onRequestPermissionResult(requestCode, permissions, grantResults)
-
-    for (r in grantResults!!) {
-      if (r == PackageManager.PERMISSION_DENIED) {
-        pushContext?.sendPluginResult(
-          PluginResult(
-            PluginResult.Status.ILLEGAL_ACCESS_EXCEPTION,
-            "Permission to post notifications was denied by the user"
-          )
-        )
-        return
-      }
-    }
-
-    if (requestCode == REQ_CODE_INITIALIZE_PLUGIN)
-    {
-      executeActionInitialize(pluginInitData!!, pushContext!!)
-    }
-  }
 }
